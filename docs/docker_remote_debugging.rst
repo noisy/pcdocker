@@ -31,11 +31,11 @@ will be displayed in docker-compose logs.
 
 You can test ssh conection using password *docker*, by::
 
-    ssh docker_pcdocker@localhost -p 2222
+    ssh docker_redditclone@localhost -p 2222
     
 or you can also use ssh-key::
 
-    ssh -i compose/pycharm/.ssh_keys_to_docker/id_rsa docker_pcdocker@localhost -p 2222
+    ssh -i compose/pycharm/.ssh_keys_to_docker/id_rsa docker_redditclone@localhost -p 2222
 
 
 PyCharm
@@ -43,7 +43,7 @@ PyCharm
 
 This repository comes with already prepared "Run/Debug Configurations" for docker.
 
-Even if you tested ssh connection manually, you **have to** do that one more time, through PyCharm, to active "Run/Debug Configurations" for Docker. To do that, please go to *Settings > Build, Execution, Deployment > Deployment > docker_pcdocker* and click *Test SFTP connection*:
+Even if you tested ssh connection manually, you **have to** do that one more time, through PyCharm, to active "Run/Debug Configurations" for Docker. To do that, please go to *Settings > Build, Execution, Deployment > Deployment > docker_redditclone* and click *Test SFTP connection*:
 
 You should see:
 
