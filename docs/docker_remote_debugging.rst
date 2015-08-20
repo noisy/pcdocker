@@ -12,7 +12,7 @@ There is a better tool to login into container if you want to access to shell, i
 .. _docker exec: https://docs.docker.com/reference/commandline/exec/
 .. _attempts on StackOverflow: http://stackoverflow.com/a/28675525/338581
 
-To avoid putting sshd into production-ready docker image, we create another docker image on top of main ``pcdocker_django`` image from `compose/pycharm/Dockerfile <../compose/pycharm/Dockerfile>`_. That's why you have to first build main `Dockerfile <../Dockerfile>`_, and you can do that by::
+To avoid putting sshd into production-ready docker image, we create another docker image on top of main ``redditclone_django`` image from `compose/pycharm/Dockerfile <../compose/pycharm/Dockerfile>`_. That's why you have to first build main `Dockerfile <../Dockerfile>`_, and you can do that by::
 
     $ docker-compose -f dev.yml build
 
