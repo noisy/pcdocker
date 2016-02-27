@@ -1,8 +1,6 @@
 FROM python:2.7
 ENV PYTHONUNBUFFERED 1
 
-RUN apt-get update && apt-get install -y ruby-compass
-
 # Requirements have to be pulled and installed here, otherwise caching won't work
 ADD ./requirements /requirements
 ADD ./requirements.txt /requirements.txt
@@ -12,6 +10,9 @@ RUN pip install -r /requirements/local.txt
 
 RUN groupadd -r django && useradd -r -g django django
 ADD . /app
+
+RUN apt-get update && apt-get install nodejs npm ruby-compass --yes
+RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 RUN npm install -g grunt grunt-cli
 
