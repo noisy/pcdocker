@@ -21,9 +21,11 @@ RUN cd /app && grunt build
 
 RUN chown -R django /app
 
+ADD ./compose/django/env.sh /env.sh
 ADD ./compose/django/gunicorn.sh /gunicorn.sh
 ADD ./compose/django/entrypoint.sh /entrypoint.sh
 
+RUN chmod +x /env.sh && chown django /env.sh
 RUN chmod +x /entrypoint.sh && chown django /entrypoint.sh
 RUN chmod +x /gunicorn.sh && chown django /gunicorn.sh
 

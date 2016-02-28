@@ -43,4 +43,10 @@ echo "$user:$pass" | chpasswd $chpasswdOptions
 # starting ssh (detached)
 exec /etc/init.d/ssh start &
 
+# Add variables from Django entrypoint
+source env.sh
+
+# Save variables
+env | grep _ >> /etc/environment
+
 exec "$@"
