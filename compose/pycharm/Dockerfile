@@ -12,6 +12,7 @@ RUN ln -s /usr/local/bin/python /usr/bin/python
 RUN \
     apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get -y install python-pip python-setuptools python3-pip python3-setuptools openssh-server && \
+    DEBIAN_FRONTEND=noninteractive apt-get -y install openssh-server && \
     rm -rf /var/lib/apt/lists/*
 
 # sshd needs this directory to run
