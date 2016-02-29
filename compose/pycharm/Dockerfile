@@ -1,4 +1,4 @@
-FROM pcdocker_django
+FROM rhangelxs/pcdocker
 
 ENV SFTP_USER docker
 ENV SFTP_PASS changeme
