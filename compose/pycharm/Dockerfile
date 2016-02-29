@@ -1,7 +1,7 @@
-FROM pcdocker_django
+FROM rhangelxs/pcdocker
 
-ENV SFTP_USER docker
-ENV SFTP_PASS changeme
+ENV SFTP_USER docker_pcdocker
+ENV SFTP_PASS docker
 ENV PASS_ENCRYPTED false
 
 # PyCharm by default looks on /usr/bin/python
@@ -11,7 +11,6 @@ RUN ln -s /usr/local/bin/python /usr/bin/python
 # Install setuptools, pip and OpenSSH
 RUN \
     apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get -y install python-pip python-setuptools python3-pip python3-setuptools openssh-server && \
     DEBIAN_FRONTEND=noninteractive apt-get -y install openssh-server && \
     rm -rf /var/lib/apt/lists/*
 

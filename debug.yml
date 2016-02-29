@@ -13,8 +13,5 @@ debug:
    - "2222:22"
   volumes:
    - .:/app
-  environment:
-    SFTP_USER: docker_pcdocker
-    SFTP_PASS: docker
   links:
    - postgres
