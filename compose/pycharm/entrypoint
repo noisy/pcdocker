@@ -45,8 +45,8 @@ if [ -z "$pass" ]; then
     chpasswdOptions=""
 fi
 
-#echo "$user:$pass" | chpasswd $chpasswdOptions
-echo "$pass" | passwd $user --stdin
+echo "$user:$pass" | chpasswd $chpasswdOptions
+#echo "$pass" | passwd $user --stdin
 
 # starting ssh (detached)
 exec /etc/init.d/ssh start &
