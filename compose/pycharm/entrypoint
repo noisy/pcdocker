@@ -40,11 +40,6 @@ if id -u "$SFTP_USER" >/dev/null 2>&1; then
     fi
 fi
 
-if [ -z "$pass" ]; then
-    pass="$(echo `</dev/urandom tr -dc A-Za-z0-9 | head -c256`)"
-    chpasswdOptions=""
-fi
-
 echo "$user:$pass" | chpasswd $chpasswdOptions
 #echo "$pass" | passwd $user --stdin
 
