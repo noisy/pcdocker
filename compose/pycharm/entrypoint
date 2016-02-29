@@ -20,18 +20,25 @@ if [ -n "${USER_GID}" ]; then
     groupadd --gid ${USER_GID} ${USER_GID}
 fi
 
-useradd $useraddOptions $user
+if id -u "$SFTP_USER" >/dev/null 2>&1; then
+    useradd $useraddOptions $user
 
-mkdir /home/$user/.ssh
-cat /ssh_id_rsa.pub > /home/$user/.ssh/authorized_keys
+    mkdir /home/$user/.ssh
+    cat /ssh_id_rsa.pub > /home/$user/.ssh/authorized_keys
 
-chown $user:$user /home/$user
-chmod 755 /home/$user
-chmod 700 /home/$user/.ssh
-chmod 700 /home/$user/.ssh
-chmod 600 /home/$user/.ssh/authorized_keys
+    chown $user:$user /home/$user
+    chmod 755 /home/$user
+    chmod 700 /home/$user/.ssh
+    chmod 700 /home/$user/.ssh
+    chmod 600 /home/$user/.ssh/authorized_keys
 
-chown -R $user:$user /home/$user/
+    chown -R $user:$user /home/$user/
+
+    if [ -z "$pass" ]; then
+        pass="$(echo `</dev/urandom tr -dc A-Za-z0-9 | head -c256`)"
+        chpasswdOptions=""
+    fi
+fi
 
 if [ -z "$pass" ]; then
     pass="$(echo `</dev/urandom tr -dc A-Za-z0-9 | head -c256`)"
