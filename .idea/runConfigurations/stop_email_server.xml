@@ -5,9 +5,9 @@
       <task value="stop-email-server" />
     </tasks>
     <pass-parent-env-vars value="true" />
+    <envs />
     <force value="false" />
     <verbose value="true" />
-    <envs />
     <method />
   </configuration>
 </component>
