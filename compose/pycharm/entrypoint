@@ -21,6 +21,10 @@ if [ -n "${USER_GID}" ]; then
 fi
 
 if id -u "$SFTP_USER" >/dev/null 2>&1; then
+    echo "SFTP_USER: $user exist, changing password to $pass"
+    echo "$user:$pass" | chpasswd $chpasswdOptions
+else
+    echo "SFTP_USER: $user didn't exist, creating"
     useradd $useraddOptions $user
 
     mkdir /home/$user/.ssh
@@ -40,7 +44,7 @@ if id -u "$SFTP_USER" >/dev/null 2>&1; then
     fi
 fi
 
-echo "$user:$pass" | chpasswd $chpasswdOptions
+#echo "${SFTP_USER}:${SFTP_PASS}" | chpasswd $chpasswdOptions
 #echo "$pass" | passwd $user --stdin
 
 # starting ssh (detached)
