@@ -1,7 +1,7 @@
 FROM rhangelxs/pcdocker
 
-ENV SFTP_USER docker
-ENV SFTP_PASS changeme
+ENV SFTP_USER docker_pcdocker
+ENV SFTP_PASS docker
 ENV PASS_ENCRYPTED false
 
 # PyCharm by default looks on /usr/bin/python
