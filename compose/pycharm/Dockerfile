@@ -5,7 +5,6 @@ ENV SFTP_PASS docker
 ENV PASS_ENCRYPTED false
 
 # PyCharm by default looks on /usr/bin/python
-RUN ln -s /usr/local/bin/python /usr/bin/python
 #RUN ln -s /usr/local/bin/python /usr/bin/python
 
 # Install setuptools, pip and OpenSSH
