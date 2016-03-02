@@ -29,6 +29,6 @@ RUN chmod +x /env.sh && chown django /env.sh
 RUN chmod +x /entrypoint.sh && chown django /entrypoint.sh
 RUN chmod +x /gunicorn.sh && chown django /gunicorn.sh
 
-WORKDIR /app
+WORKDIR /app/pcdocker
 
 ENTRYPOINT ["/entrypoint.sh"]
